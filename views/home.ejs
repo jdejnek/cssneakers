@@ -1,0 +1,24 @@
+<% layout('layouts/boilerplate') %>
+
+<main class="main-grid">
+
+    <div class="grid-container">
+        <div class="product-grid">
+            <% for(let item of items) { %>
+                <div class="item" onclick="window.location.href='/items/<%= item._id %>'">
+                    <img src="<%= item.pictures.at(3) %> " alt="<%= item.model %> " class="item-img">
+                    <div class="item-content">
+                        <h2 class="item-title"><%= item.line + ' ' + item.model %> </h2>
+                        <p class="item-description"><%= item.colorway %></p>
+                        <p class="item-description"><%= item.brand %> </p>
+                        <p class="item-price">$<%= item.price %> </p>
+                    </div>
+                    <div class="buy"><span>Shop now</span></div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+</main>
+
+<script src="featured.js"></script>

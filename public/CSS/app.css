@@ -1,0 +1,698 @@
+/* CSS Reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+
+/* Navigation bar */
+
+
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 100%;
+}
+
+.menu-icons {
+    font-size: 2rem;
+    position: absolute;
+    top: 2.3rem;
+    right: 2rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1500;
+    display: none;
+}
+
+nav {
+    width: 100%;
+    height: 4rem;
+    background-color: black;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    line-height: 4rem;
+    position: relative;
+}
+
+.nav-list li a {
+    color: white;
+}
+
+.sub-menu li {
+    line-height: 2rem;
+}
+
+.nav-list a {
+    display: block;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: 'Fira Code', monospace;
+    transition: color 300ms;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-list a:hover {
+    color: red;
+
+}
+
+.sub-menu {
+    width: 20rem;
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 8rem;
+    transition: all 650ms ease;
+    opacity: 0;
+    visibility: hidden;
+    background-color: black;
+    border: 2px solid white;
+}
+
+.sub-menu .sub-menu {
+    top: 0;
+    left: 100%;
+    border-top: none;
+    border: 2px solid white;
+}
+
+.nav-list li:hover>.sub-menu {
+    top: 4rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.sub-menu li:hover>.sub-menu {
+    top: 0;
+    left: 65%;
+}
+
+#forward-icon {
+    transform: translateY(0.145rem);
+}
+
+@media screen and (max-width: 850px) {
+
+    .nav-container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-list {
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        flex-direction: column;
+        background-color: black;
+        z-index: 1000;
+        align-items: initial;
+        padding: 0;
+        margin: 0;
+        display: none;
+        justify-content: flex-start;
+    }
+
+    .nav-list>li {
+        line-height: 3rem;
+    }
+
+    .nav-list a {
+        color: white;
+    }
+
+    .sub-menu {
+        position: initial;
+        max-height: 0;
+        border: none;
+    }
+
+    .nav-list li:hover>.sub-menu {
+        opacity: 1;
+        visibility: visible;
+        max-height: initial;
+        border: none;
+    }
+
+    .menu-icons {
+        display: block;
+    }
+
+    #close-icon {
+        display: none;
+        color: white;
+    }
+
+    #menu-icon {
+        color: white;
+    }
+
+    nav.active #close-icon {
+        display: block;
+    }
+
+    nav.active #menu-icon {
+        display: none;
+    }
+
+    nav.active .nav-list {
+        display: flex;
+    }
+
+    nav.active #cart-icon {
+        display: none;
+    }
+
+    nav.active #search-icon {
+        display: none;
+    }
+
+    #cart-icon {
+        left: 1rem;
+    }
+
+    #search-icon {
+        display: none;
+    }
+
+    #footer {
+        display: none;
+    }
+
+    #product-container {
+        justify-content: center;
+    }
+
+   .sign-in {
+        display: none;
+   }
+
+   .carousel {
+    padding-left: 1.5rem;
+    padding-bottom: 2rem;
+   }
+}
+
+/* Product grid */
+
+.grid-container {
+    max-width: 100rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
+    margin-top: 8rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-template-rows: auto 1fr auto;
+    gap: 4rem;
+}
+
+.alt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 12rem);
+    grid-template-rows: auto 1fr auto;
+    gap: 4rem;
+}
+
+
+.product-grid-search {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 4rem;
+}
+
+.item {
+    aspect-ratio: 1 / 1.5;
+    transition: 0.5s;
+}
+
+.item-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.item-content {
+    background: white;
+    align-self: end;
+    padding: 0.5rem;
+}
+
+.item-title {
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    font-size: 1.20rem;
+    text-transform: uppercase;
+}
+
+.item-description {
+    font-family: 'Fira Code', monospace;
+    font-weight: 400;
+    font-size: 1rem;
+    overflow-wrap: break-word;
+}
+
+.item-price {
+    font-family: 'Fira Code', monospace;
+    font-weight: 400;
+    font-size: 1rem;
+    color: green;
+}
+
+@media (min-width: 60em) {
+
+    .card-img {
+        aspect-ratio: 1 / 1;
+    }
+
+    .item.featured {
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+
+    .item.featured .item-img {
+        aspect-ratio: 1 / 1.3;
+    }
+
+    .item.featured .item-title {
+        font-size: 1.75rem;
+    }
+
+    .item:hover {
+        transform: scale(1.15);
+        z-index: 2;
+        cursor: pointer;
+        --borderWidth: 2px;
+        border-radius: 1px;
+        position: relative;
+        border-radius: var(--borderWidth);
+    }
+
+    .item.featured:hover {
+        transform: scale(1.1);
+        z-index: 2;
+        cursor: pointer;
+    }
+
+}
+
+#search-icon {
+    top: 50%;
+    right: 5rem;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    transform: translateY(-45%);
+    cursor: pointer;
+    z-index: 1500;
+    transition: color 300ms;
+}
+
+#search-icon:hover {
+    color: red;
+}
+
+#cart-icon {
+    top: 50%;
+    right: 2rem;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    transform: translateY(-45%);
+    cursor: pointer;
+    z-index: 1500;
+    transition: color 300ms;
+}
+
+#cart-icon:hover {
+    color: red;
+}
+
+#search-div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#search-bar {
+    width: 400px;
+    height: 50px;
+    border: 2px solid black;
+    font-family: 'Fira Code', monospace;
+    display: none;
+}
+
+
+.item:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: rgb(0,189,255);
+    background: linear-gradient(90deg, rgba(0,189,255,1) 0%, rgba(255,0,0,1) 100%);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3.5s ease alternate infinite;
+    background-size: 300% 300%;
+    opacity: 0.9;
+}
+
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.buy {
+    /* display: none; */
+    text-align: center;
+    padding-top: 0.3rem;
+}
+
+.buy span {
+    font-size: 1.2rem;
+    font-family: 'Fira Code', monospace;
+    text-transform: uppercase;
+    color: white;
+}
+
+.sign-in {
+    color: white;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem;
+    left: 1rem;
+    position: absolute;
+    transition: color 300ms;
+    text-decoration: none;
+}
+
+.sign-in :hover {
+    color: red;
+}
+
+/* Shopping cart */
+
+.shopping-cart-container {
+    width: 22rem;
+    height: 100%;
+    background-color: rgba(0, 0, 0);
+    display: none;
+    z-index: 1000;
+    position: fixed;
+    right: 0;
+    top: 4rem;
+    border-left: 5px solid black;
+}
+
+.shopping-cart {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    padding-bottom: 7rem;
+}
+
+.shopping-cart-item {
+    display: grid;
+    grid-template-columns: 8rem 10rem;
+    height: 8rem;
+    background-color: black;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.shopping-cart-item .item-content {
+    height: 8rem;
+    width: 10rem;
+    border-bottom: 5px solid black;
+    display: grid;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+}
+
+.shopping-cart-item .item-content .cart-item-title {
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.shopping-cart-item .item-content .cart-item-price {
+    font-size: 0.8rem;
+    color: white;
+}
+
+.shopping-cart-item .item-content .cart-item-qty {
+    font-size: 0.8rem;
+}
+
+.shopping-cart-item img {
+    height: 8rem;
+    width: 8rem;
+    object-fit: cover;
+    padding: 1rem;
+}
+
+.shopping-cart-item span {
+    size: 0.2rem;
+}
+
+.cart-title {
+    color: white;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid white;
+}
+
+.shopping-cart-container .checkout-btn {
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: white;
+}
+
+.shopping-cart-container .total {
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: white;
+}
+
+.shopping-cart-container .total-val {
+    color: green;
+}
+
+
+/* Product page */
+
+.carousel-inner {
+    max-width: 65vw;
+    max-height: 80%;
+    /* aspect-ratio: 1 / 1.3; */
+}
+
+#product-container {
+    height: 100%;
+    margin-top: 7rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0;
+    aspect-ratio: 1 / 1.15;
+    object-fit: cover;
+}
+
+#checkout-container {
+    height: 100%;
+    margin-top: 5rem;
+    padding-bottom: 4rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Utils */
+
+a.red-hover {
+    color: white;
+}
+a.red-hover:hover {
+    color: red;
+}
+
+.item-description {
+    text-align: justify;
+}
+
+.logo-left {
+    background-image: url('https://i.ibb.co/HYVP7zP/hacked-logo-2.png');
+    background-repeat: repeat-y;
+    width: 2.5rem;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-left: 0.1rem;
+    /* margin-top: 4rem; */
+}
+
+.logo-right {
+    background-image: url('https://i.ibb.co/wwWyhdt/hacked-logo-2-flipped3.png');
+    background-repeat: repeat-y;
+    width: 2.5rem;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin-right: 0.1rem;
+    /* margin-top: 4rem; */
+}
+
+@media screen and (max-width: 1680px) {
+    #footer {
+        display: none;
+    }
+
+    .grid-container {
+        padding-inline: 6rem;
+    }
+
+    #product-container {
+        padding-left: 4rem;
+        padding-right: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .logo-left {
+        width: 2rem;
+        background-size: 100%
+    }
+
+    .logo-right {
+        width: 2rem;
+        background-size: 100%
+    }
+}
+
+#order-container {
+    height: 100%;
+    margin-top: 8rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
+    padding-bottom: 2rem;
+}

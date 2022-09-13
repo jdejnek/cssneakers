@@ -1,0 +1,81 @@
+<% layout('layouts/boilerplate') %>
+
+
+    <main>
+        <div class="grid-container">
+            <div class="product-page-grid">
+                <div class="product-left" data-carousel>
+                    <div class="carousel" data-carousel>
+                        <button class="carousel-button prev" data-carousel-button="prev">&#8678;</button>
+                        <button class="carousel-button next" data-carousel-button="next">&#8680;</button>
+                        <ul data-slides>
+                            <li class="slide" data-active><img src="<%= item.pictures.at(0) %>" alt=""></li>
+                            <li class="slide"><img src="<%= item.pictures.at(1) %>" alt=""></li>
+                            <li class="slide"><img src="<%= item.pictures.at(2) %>" alt=""></li>
+                            <li class="slide"><img src="<%= item.pictures.at(3) %>" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-right">
+                    <div class="product-info-wrapper">
+                        <div class="product-title">
+                            <h2 class="title">
+                                <%= item.brand + ' ' + item.line + ' ' + item.model %>
+                            </h2>
+                        </div>
+                        <div class="price">$<%= item.price %>
+                        </div>
+                        <div class="colorways">
+                            <div class="colorways-text"><span>Colorway</span></div>
+                            <div class="colorways-grid">
+                                <div class="color-option"></div>
+                                <div class="color-option"></div>
+                                <div class="color-option"></div>
+                                <div class="color-option"></div>
+                                <div class="color-option"></div>
+                                <div class="color-option"></div>
+                            </div>
+                        </div>
+                        <div class="product-description">
+                            <p>
+                                <%= item.description %>
+                            </p>
+                        </div>
+                        <div class="sizes">
+                            <div class="size-text">
+                                <p>Size</p>
+                            </div>
+                            <div class="sizes-grid">
+                                <% const sizesStr=item.sizes.map(num=> {return String(num)}) %>
+                                    <% for(let size of sizesStr) { %>
+                                        <div class="size-option">
+                                            <p class="size-value">
+                                                <%= size %>
+                                            </p>
+                                        </div>
+                                        <% } %>
+                            </div>
+
+                        </div>
+
+                        <div class="add-to-cart">
+                            <form action="/cart" method="post">
+                                <div>
+                                    <label for="qty">Size</label>
+                                    <select name="size">
+                                <option value="39">39</option>
+                                <option value="42">42</option></select>
+                                </div>
+                                <div>
+                                    <label for="qty">Quantity</label>
+                                    <input type="number" class="qty" name="qty" min="1" max="10" value="1">
+                                </div>
+                                <button class="cart-btn">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-bottom"></div>
+            </div>
+        </div>
+    </main>

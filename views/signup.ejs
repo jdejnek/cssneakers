@@ -1,0 +1,70 @@
+<% layout('layouts/boilerplate') %>
+
+<body>
+    <div class="container d-flex justify-content-center h-100" style="margin-top: 5rem; margin-bottom: 4rem">
+        <div class="col-6 my-1">
+            <h4 class="text-center my-4">Register a new account</h4>
+            <div class="mb-4"><span class="text-danger">The data you post here will be saved to my backend.</span>
+                <span>I did my best but my security measures are not exactly cutting-edge. You might not want to provide your real details. Feel free to get creative.</span><br><br>
+                    <span>Your password will be encrypted. However, I still strongly recommend that you <span class="text-danger">do not</span> use one that is tied to your real accounts.</span>
+            </div>
+            <hr class="mb-4">
+            <form action="/signup" method="post" id="signup-form">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="first-name" class="form-label">First name</label>
+                        <input type="text" class="form-control" name="firstName" id="firstName" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="first-name" class="form-label">Last name</label>
+                        <input type="text" class="form-control" name="lastName" id="lastName" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="username" class="form-control" name="username" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" id="password" class="form-control" required>                        
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="r-password" class="form-label">Repeat password</label>
+                        <input type="password" name="r-password" id="r-password" class="form-control" required>                        
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="street-address" class="form-label">Street address</label>
+                    <input type="street-address" class="form-control" name="streetAddress" id="streetAddress" required>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" class="form-control" name="country" id="country" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" name="city" id="city" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="zip" class="form-label">Zip code</label>
+                        <input type="text" class="form-control" name="zip" id="zip" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="company" class="form-label">Company (optional)</label>
+                        <input type="text" name="company" id="company" class="form-control" required>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <div class="d-grid gap-2">
+                <button class="btn btn-danger" type="submit">Register</button>
+            </div>
+            </form>
+            <div style="text-align: center" class="my-3">Already have an account? <a href='/login'>Log in here.</a></div>
+        </div>
+    </div>

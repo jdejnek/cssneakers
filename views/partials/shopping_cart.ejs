@@ -1,0 +1,26 @@
+<div class="shopping-cart-container">
+    <div class="shopping-cart">
+        <h4 class="cart-title">Your shopping cart</h2>
+        <% const cart=req.session.cart %>
+            <% for(let cartItem of cart) { %>
+                <div class="shopping-cart-item">
+                    <img src="<%= cartItem.img %> " class="cart-item-img">
+                    <div class="item-content">
+                        <p class="cart-item-title">
+                            <%= cartItem.line + ' ' + cartItem.model %>
+                        </p>
+                        <p class="cart-item-qty"><%= cartItem.brand %></p>
+                        <p class="cart-item-price">$<%= cartItem.price %>
+                        </p>
+                        <p class="cart-item-qty">Qty: <%= cartItem.qty %>
+                        </p>
+                    </div>
+                </div>
+                <% } %>
+                <div class="total">
+                    <p>Total: <span class="total-val"> $<%= req.session.total %>
+                    </p></span>
+                </div>
+                <div class="checkout-btn"><a role="button" href="/checkout">Checkout</a></div>
+            </div>
+</div>

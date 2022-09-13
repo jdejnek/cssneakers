@@ -1,0 +1,76 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="container d-flex" id="product-container">
+        <div class="row gx-5">
+            <div class="col-md-6">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="3000">
+                            <img src="<%= item.pictures.at(3) %>" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<%= item.pictures.at(2) %>" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<%= item.pictures.at(1) %>" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<%= item.pictures.at(0) %>" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <h2>
+                        <%= item.line + ' ' + item.model %>
+                    </h2>
+                    <hr class="my-3">
+                </div>
+                <div class="row mb-4">
+                    <p class="mb-2"><%= item.colorway %></p>
+                    <p class="mb-3"><%= item.gender %></p>
+                    <h4 class="text-success">$<%= item.price %></h4>
+                </div>
+                <div class="row my-4">
+                    <p class="item-description"><%= item.description %></p>
+                </div>
+                <hr class="my-4">
+                <form action="/cart" method="post">
+                <div class="row my-4">
+                    <p class="my-3">Size:</p>
+                    <select class="form-select" aria-label="Default select example" name="size" id="size">
+                        <% for (let size of item.sizes) { %> 
+                        <option value="<%= size %>"><%= size %></option>
+                        <% } %> 
+                    </select>
+                </div>
+                <div class="row my-4">
+                    <p class="my-3">Quantity:</p>
+                    <select name="qty" id="qty" class="form-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                </div>
+                <div class="row mt-3">
+                    <button class="btn btn-danger mt-4 p-2">Add to Cart</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>

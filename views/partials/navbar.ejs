@@ -1,0 +1,89 @@
+<header>
+    <div class="nav-container">
+        <nav>
+            <div class="menu-icons">
+                <ion-icon name="menu-outline" id="menu-icon"></ion-icon>
+                <ion-icon name="close-outline" id="close-icon"></ion-icon>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/items">All Items</a></li>
+                <li>
+                    <a href="/brands/nike">Nike</a>
+                    <ul class="sub-menu">
+                        <li><a href="/brands/nike/air-force-1">Air Force 1</a></li>
+                        <li><a href="/brands/nike/blazer">Blazer</a></li>
+                        <li><a href="/brands/nike/air-max">Air Max</a></li>
+                        <li><a href="/brands/nike/dunk">Dunk</a></li>
+                        <li>
+                            <a href="#">Other models
+                                <ion-icon name="chevron-forward-outline" id="forward-icon"></ion-icon>
+                            </a>
+                            <ul class="sub-menu">
+                                <li><a href="/brands/nike/vapormax">VaporMax</a></li>
+                                <li><a href="/brands/nike/air-monarch">Air Monarch</a></li>
+                                <li><a href="/brands/nike/streetgato">Streetgato</a></li>
+                                <li><a href="/brands/nike/waffle">Waffle</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/brands/jordan">Jordan</a>
+                    <ul class="sub-menu">
+                        <li><a href="/brands/jordan/air-jordan-i">Air Jordan I</a></li>
+                        <li><a href="/brands/jordan/air-jordan-v">Air Jordan V</a></li>
+                        <li><a href="/brands/jordan/air-jordan-vi">Air Jordan VI</a></li>
+                        <li><a href="/brands/jordan/air-jordan-xi">Air Jordan XI</a></li>
+                        <li><a href="/brands/jordan/air-jordan-xii">Air Jordan XII</a></li>
+                        <li><a href="/brands/jordan/air-200e">Air 200E</a></li>
+                        <li><a href="/brands/jordan/delta-3">Delta 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="/new-balance">New Balance</a>
+                    <ul class="sub-menu">
+                        <li><a href="/new-balance">574</a></li>
+                        <li><a href="/new-balance">990</a></li>
+                        <li><a href="/new-balance">996</a></li>
+                        <li><a href="/new-balance">Other models
+                                <ion-icon name="chevron-forward-outline" id="forward-icon"></ion-icon>
+                            </a>
+                            <ul class="sub-menu">
+                                <li><a href="/new-balance">237</a></li>
+                                <li><a href="/new-balance">327</a></li>
+                                <li><a href="/new-balance">237</a></li>
+                                <li><a href="/new-balance">All Coasts</a></li>
+                                <li><a href="/new-balance">Numeric</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Other</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Yeezy</a></li>
+                        <li><a href="#">Reebok</a></li>
+                        <li><a href="#">Converse</a></li>
+                        <li><a href="#">Adidas</a></li>
+                        <li><a href="#">Vans</a></li>
+                    </ul>
+                </li>
+                <% if(!loggedUser) {%>
+                    <div class="sign-in"><a href="/login">Sign in</a></div>
+                    <% } else {%>
+                        <div class="sign-in"><a href="/account">
+                                <%= loggedUser.firstName %>
+                            </a></div>
+                        <% } %>
+            </ul>
+            <div class="utility-icons">
+                <div>
+                    <ion-icon name="search-outline" id="search-icon"></ion-icon>
+                    <div id="search-div"><input type="search" id="search-bar" placeholder="Search..."></div>
+                </div>
+                <div>
+                    <ion-icon name="cart-outline" id="cart-icon"></ion-icon>
+                </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</header>

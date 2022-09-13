@@ -1,0 +1,21 @@
+div {
+    margin: 13px;
+}
+
+button {
+    margin: 10px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#description {
+    width: 500px;
+}
+
+#pics {
+    width: 500px;
+}

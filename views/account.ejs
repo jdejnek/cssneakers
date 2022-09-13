@@ -1,0 +1,19 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="container d-flex justify-content-center align-items-center" style="height: 94vh">
+        <div class="col-6 d-flex flex-column">
+            <div class="row align-self-center mb-3"><h3>
+                <%= loggedUser.firstName + ' ' + loggedUser.lastName %>
+            </h3>
+        </div>
+            <div class="row my-3">
+                <a href="/account_info" role="button" class="btn btn-outline-danger">Update your information</a>
+            </div>
+            <!-- <div class="row mb-3">
+                <a href="/order_history" role="button" class="btn btn-outline-danger">Order history</a>
+            </div> -->
+            <div class="row">
+                <a href="/logout" role="button" class="btn btn-outline-danger">Log out</a>
+            </div>
+        </div>
+    </div>

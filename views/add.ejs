@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add item</title>
+    <link rel="stylesheet" href="/CSS/add_product.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <form action="/items" method="POST">
+            <div>
+                <label for="model">Model:</label>
+                <input type="text" name="model" id="model" placeholder="String">
+            </div>
+            <div>
+                <label for="brand">Brand:</label>
+                <input type="text" name="brand" id="brand" placeholder="String">
+            </div>
+            <div>
+                <label for="line">Line:</label>
+                <input type="text" name="line" id="line" placeholder="String">
+            </div>
+            <div>
+                <label for="colorway">Colorway:</label>
+                <input type="text" name="colorway" id="colorway" placeholder="String">
+            </div>
+            <div>
+                <label for="price">Price:</label>
+                <input type="text" name="price" id="price" placeholder="Number">
+            </div>
+            <div class="sizes">
+                <label for="sizes[]">Size:</label>
+                <input type="text" name="sizes[]" id="size" placeholder="Size option">
+            </div>
+            <button class="size-btn">+</button>
+            <div>
+                <label for="description">Description:</label>
+                <input type="text" name="description" id="description" placeholder="String" size="50">
+            </div>
+            <div class="pictures">
+                <label for="pictures[]">Picture:</label>
+                <input type="text" name="pictures[]" id="pictures" placeholder="URL">
+            </div>
+            <button class="pics-btn">+</button>
+            <div>
+                <label for="gender">Gender:</label>
+                <select name="gender" id="gender">
+                    <option value="Men's Shoes">Men's Shoes</option>
+                    <option value="Women's Shoes">Women's Shoes</option>
+                    <option value="Unisex">Unisex</option>
+                </select>
+            </div>
+            <button id="btn">Add to database</button>
+            <input type="reset" name="" id="">
+        </form>
+    </div>
+    <script src="add.js"></script>
+</body>
+
+</html>
