@@ -33,7 +33,7 @@ const store = MongoStore.create({
     touchAfter: 24 * 60 * 60
 });
 
-store.on('error', function(e) {
+store.on('error', function (e) {
     console.log('SESSION STORE ERROR', e)
 });
 
@@ -91,13 +91,13 @@ app.use((req, res, next) => {
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     res.locals.session = req.session;
-    if (! Array.isArray(req.session.cart)) {
+    if (!Array.isArray(req.session.cart)) {
         req.session.cart = [];
-      };
-    if (! req.session.number ) {
+    };
+    if (!req.session.number) {
         req.session.number = 0;
     };
-    if (! req.session.total ) {
+    if (!req.session.total) {
         req.session.total = 0;
     }
     next();
@@ -131,8 +131,8 @@ app.use((err, req, res, next) => {
     }
 })
 
-
-app.listen(3000, () => {
-    console.log("App running on port 3000");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`App running on port ${port}`);
 });
 
