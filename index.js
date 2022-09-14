@@ -109,24 +109,6 @@ const itemRoutes = require('./routes/itemRoutes');
 app.use('/', userRoutes);
 app.use('/', itemRoutes);
 
-
-// Admin routes
-
-// Route for the database interface
-
-app.get("/add", (req, res) => {
-    res.render("add");
-});
-
-// Route to add items to the database
-
-app.post("/items", async (req, res) => {
-    const newItem = new Item(req.body);
-    await newItem.save();
-    console.log(req.body);
-});
-
-
 // 404
 
 app.all('*', (req, res, next) => {
