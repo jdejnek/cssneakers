@@ -56,9 +56,6 @@ app.use(flash());
 
 // Mongo config
 
-//"mongodb://localhost:27017/sneakerInventory"
-
-
 
 main(console.log("Mongo connected")).catch((err) => console.log(err));
 
