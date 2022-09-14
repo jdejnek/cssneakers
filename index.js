@@ -17,6 +17,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const sanitizeHtml = require('sanitize-html');
 mongoose.plugin(slug);
 app.use(morgan('dev'));
+const dbUrl = process.env.DB_URL
 
 // Require mongo models
 
@@ -26,8 +27,8 @@ const Item = require("./models/item");
 // Session config
 
 const store = MongoStore.create({
-    mongoUrl: "mongodb://localhost:27017/sneakerInventory",
-    secret: 'ineedtocomeupwithsthbetter',
+    mongoUrl: dbUrl,
+    secret: process.env.SECRET,
     collection: 'sessions',
     touchAfter: 24 * 60 * 60
 });
@@ -55,10 +56,14 @@ app.use(flash());
 
 // Mongo config
 
+//"mongodb://localhost:27017/sneakerInventory"
+
+
+
 main(console.log("Mongo connected")).catch((err) => console.log(err));
 
 async function main() {
-    await mongoose.connect("mongodb://localhost:27017/sneakerInventory");
+    await mongoose.connect(dbUrl);
 }
 
 
