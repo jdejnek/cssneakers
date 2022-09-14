@@ -42,7 +42,7 @@ router.get("/items/:id", catchAsync(async (req, res) => {
 
 // Route for brand page
 
-router.get("/brands/:brand", async (req, res) => {
+router.get("/brands/:brand", catchAsync(async (req, res) => {
     const { brand } = req.params;
     const uppercase = brand.charAt(0).toUpperCase() + brand.slice(1);
     const items = await Item.find({ brand: uppercase });
@@ -56,11 +56,11 @@ router.get("/brands/:brand", async (req, res) => {
     }
     shuffleArray(items);
     res.render("brand_page", { items });
-});
+}));
 
 // Route for item line
 
-router.get("/brands/:brand/:slug", async (req, res) => {
+router.get("/brands/:brand/:slug", catchAsync(async (req, res) => {
     const { slug } = req.params;
     const items = await Item.find({ slug });
     function shuffleArray(array) {
@@ -73,9 +73,11 @@ router.get("/brands/:brand/:slug", async (req, res) => {
     }
     shuffleArray(items);
     res.render("line_page", { items });
-});
+}));
 
-router.post('/cart', isLoggedIn, async(req, res) => {
+// Shopping cart
+
+router.post('/cart', isLoggedIn, catchAsync(async(req, res) => {
     const { itemId } = req.session
     const { qty, size } = req.body;
     const item = await Item.findById(itemId);
@@ -126,7 +128,9 @@ router.post('/cart', isLoggedIn, async(req, res) => {
             res.redirect('/items');
         }
     });
-})
+}));
+
+// Misc
 
 router.get('/checkout', (req, res) => {
     res.render('checkout');

@@ -35,6 +35,10 @@ const UserSchema = new mongoose.Schema ({
     city: {
         type: String,
         required: true,
+    },
+    company: {
+        type: String,
+        required: false,
     }
 })
 

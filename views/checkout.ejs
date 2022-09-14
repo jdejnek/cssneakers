@@ -32,38 +32,39 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="first-name" class="form-label">First name</label>
-                            <input type="text" class="form-control" name="first-name" id="first-name" value="<%= loggedUser.firstName %>" required>
+                            <input type="text" class="form-control" name="first-name" id="first-name" value="<%= loggedUser.firstName %>" required disabled>
                             <div class="invalid-feedback">Valid first name is required.</div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="first-name" class="form-label">Last name</label>
-                            <input type="text" class="form-control" name="last-name" id="last-name" value="<%= loggedUser.lastName %>" required>
+                            <input type="text" class="form-control" name="last-name" id="last-name" value="<%= loggedUser.lastName %>" required disabled>
                             <div class="invalid-feedback">Valid last name is required.</div>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" name="email" id="email" value="<%= loggedUser.email %>" required>
+                        <input type="email" class="form-control" name="email" id="email" value="<%= loggedUser.email %>" required disabled>
                         <div class="invalid-feedback">Please provide a valid email address.</div>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Street address</label>
-                        <input type="text" class="form-control" name="streetAddress" id="streetAddress" value="<%= loggedUser.streetAddress %>  " required>
+                        <input type="text" class="form-control" name="streetAddress" id="streetAddress" value="<%= loggedUser.streetAddress %>  " required disabled>
                         <div class="invalid-feedback">Please provide a valid shipping address.</div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label for="country" class="form-label">Country</label>
-                            <input type="text" class="form-control" name="country" id="country" value="<%= loggedUser.country %>" required>
+                            <input type="text" class="form-control" name="country" id="country" value="<%= loggedUser.country %>" required disabled>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="country" class="form-label">City</label>
-                            <input type="text" class="form-control" name="city" id="city" value="<%= loggedUser.city %>" required>
+                            <input type="text" class="form-control" name="city" id="city" value="<%= loggedUser.city %>" required disabled>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="country" class="form-label">Zip code</label>
-                            <input type="text" class="form-control" name="zip" id="zip" value="<% loggedUser.zip %>" required>
+                            <input type="text" class="form-control" name="zip" id="zip" value="<% loggedUser.zip %>" required disabled>
                         </div>
+                        <a href="/account_info">Update your information</a>
                     </div>
                     <hr class="mb-4">
                     <h4 class="mb-4">Payment</h4>

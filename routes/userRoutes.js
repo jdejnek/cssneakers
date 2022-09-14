@@ -8,16 +8,11 @@ const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
 const { isLoggedIn } = require('../middleware');
 const methodOverride = require('method-override');
+const sanitizeHtml = require('sanitize-html');
 router.use(express.urlencoded({ extended: true }));
 router.use(methodOverride('_method'));
 router.use(passport.initialize());
 router.use(passport.session());
-
-// router.use(session({
-//     secret: "dummy",
-//     resave: false,
-//     saveUninitialized: false
-// }));
 
 //User registration
 
@@ -27,6 +22,7 @@ router.get("/signup", (req, res) => {
 
 router.post('/signup', catchAsync(async (req, res, next) => {
     const { firstName, lastName, username, password, email, streetAddress, country, city, zip, company } = req.body;
+    sanitizeHtml(req.body);
     const user = new User({ firstName, lastName, username, email, streetAddress, country, city, zip, company });
     const newUser = await User.register(user, password);
     req.login(newUser, err => {
@@ -61,11 +57,13 @@ router.get('/account_info', isLoggedIn, (req, res) => {
 
 // Update user data
 
-router.patch('/account_info', isLoggedIn, async(req, res) => {
+router.patch('/account_info', isLoggedIn, catchAsync(async(req, res) => {
     const user = await User.findByIdAndUpdate(req.user._id, {...req.body});
+    sanitizeHtml(req.body);
     req.flash('success', 'Your account has been updated.');
     res.redirect('/account');
-})
+}));
+
 
 // Logout
 

@@ -14,6 +14,7 @@ const AppError = require('./utils/AppError');
 const methodOverride = require('method-override');
 const MongoStore = require('connect-mongo');
 const mongoSanitize = require('express-mongo-sanitize');
+const sanitizeHtml = require('sanitize-html');
 mongoose.plugin(slug);
 app.use(morgan('dev'));
 
@@ -37,7 +38,7 @@ store.on('error', function(e) {
 
 const sessionConfig = {
     store: store,
-    secret: 'ineedtocomeupwithsthbetter',
+    secret: process.env.SECRET,
     name: 'session_id',
     resave: false,
     saveUninitialized: true,
